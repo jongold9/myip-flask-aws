@@ -1,11 +1,30 @@
-from flask import Flask, render_template, request
+# ------------------------------------------------
+# Program by Denis Astahov
+#
+#
+# Version      Date           Info
+# 1.0          13-Dec-2019    Initial Version
+#
+# ----------------------------------------------
+from flask import Flask, render_template
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/')
+
+@application.route("/")
+def root():
+    return render_template("index.html")
+
+@application.route("/help")
+def helppage():
+    return render_template("help.html")
+
+@application.route("/hello")
 def index():
-    ip_address = request.remote_addr
-    return render_template('index.html', ip_address=ip_address)
+    return "Hello World from Flask Hello Page.<b> v1.0"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#--------Main------------------
+if __name__ == "__main__":
+    application.debug = True
+    application.run()
+#------------------------------
