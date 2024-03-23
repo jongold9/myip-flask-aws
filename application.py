@@ -17,7 +17,6 @@ def index():
     
     user_external_ip = request.access_route[0]
 
-    # Получение локации пользователя по внешнему IP-адресу
     user_location = get_location(user_external_ip)
 
     return render_template('index.html', external_ip=external_ip, 
