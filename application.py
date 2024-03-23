@@ -7,9 +7,6 @@ application = Flask(__name__)
 def root():
     return render_template("index.html")
 
-@application.route("/help")
-def helppage():
-    return render_template("help.html")
 
 @application.route("/hello")
 def index():
